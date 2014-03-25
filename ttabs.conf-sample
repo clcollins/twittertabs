@@ -1,0 +1,8 @@
+[api]
+key = abc123
+secret = abc123
+[access]
+key = abc123
+secret = abc123
+[users]
+users=user1,user2,user3,user4
