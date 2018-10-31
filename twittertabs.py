@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Twittertabs
 # ===========
@@ -8,9 +8,10 @@
 #
 # Chris Collins, <christopher.collins@duke.edu>
 #
+# v0.2 - 2018-10-31 - Upgrade to Python3
 # v0.1 - 2014-03-25
 #
-# Copyright (C) 2014 Chris Collins
+# Copyright (C) 2014-2018 Chris Collins
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -36,13 +37,13 @@
 
 import time
 import tweepy
-import ConfigParser
+import configparser
 
 # The Current Time
 now = time.time()
 
 # Parse the config file
-parser = ConfigParser.SafeConfigParser()
+parser = configparser.SafeConfigParser()
 parser.read('ttabs.conf')
 config = dict((section, dict((option, parser.get(section, option))
                              for option in parser.options(section)))
@@ -73,11 +74,11 @@ def check_tweets(user):
             (18000 seconds), then print """
         createdstr = str(tweet.created_at)
         if mkepoch(createdstr) > (int(now) - 18000):
-            print tweet.text
-            print '----------'
-            print tweet.author.screen_name
-            print tweet.created_at
-            print ''
+            print(tweet.text)
+            print('----------')
+            print(tweet.author.screen_name)
+            print(tweet.created_at)
+            print('')
 
 
 def mkepoch(date):
