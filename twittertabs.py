@@ -43,7 +43,7 @@ import configparser
 now = time.time()
 
 # Parse the config file
-parser = configparser.SafeConfigParser()
+parser = configparser.ConfigParser()
 parser.read('ttabs.conf')
 config = dict((section, dict((option, parser.get(section, option))
                              for option in parser.options(section)))
